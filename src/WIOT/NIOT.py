@@ -76,24 +76,25 @@ class NIOT:
         # Use the appropriate price index for each variable (or what I believe to be the appropriate price index...?)
         
         ### Deflate the Socio-Economic Accounts ###
-        # Deflate the gross output by the gross output price index
-        self.sea_raw.loc['GO',:] = self.sea_raw.loc['GO'] / self.go_pi
-        
-        # Deflate the value added, and other incomes, by the value added price index
-        self.sea_raw.loc['VA',:]   = self.sea_raw.loc['VA'] / self.va_pi
-        self.sea_raw.loc['CAP',:]  = self.sea_raw.loc['CAP'] / self.va_pi 
-        self.sea_raw.loc['COMP',:] = self.sea_raw.loc['COMP'] / self.va_pi 
-        self.sea_raw.loc['LAB', :] = self.sea_raw.loc['LAB'] / self.va_pi 
-        
-        # Deflate the intermediate inputs by the intermediate inputs price index
-        self.sea_raw.loc['II',:] = self.sea_raw.loc['II'] / self.ii_pi 
-
-        # Deflate the capital stock. By what?
-        # Let's assume the gros output
-        self.sea_raw.loc['K', :] = self.sea_raw.loc['K'] / self.go_pi 
-        
-        ### Deflate the National Input Output Tables ###
-        # (need to figure this one out...)
+        if defalte:
+            # Deflate the gross output by the gross output price index
+            self.sea_raw.loc['GO',:] = self.sea_raw.loc['GO'] / self.go_pi
+            
+            # Deflate the value added, and other incomes, by the value added price index
+            self.sea_raw.loc['VA',:]   = self.sea_raw.loc['VA'] / self.va_pi
+            self.sea_raw.loc['CAP',:]  = self.sea_raw.loc['CAP'] / self.va_pi 
+            self.sea_raw.loc['COMP',:] = self.sea_raw.loc['COMP'] / self.va_pi 
+            self.sea_raw.loc['LAB', :] = self.sea_raw.loc['LAB'] / self.va_pi 
+            
+            # Deflate the intermediate inputs by the intermediate inputs price index
+            self.sea_raw.loc['II',:] = self.sea_raw.loc['II'] / self.ii_pi 
+    
+            # Deflate the capital stock. By what?
+            # Let's assume the gros output
+            self.sea_raw.loc['K', :] = self.sea_raw.loc['K'] / self.go_pi 
+            
+            ### Deflate the National Input Output Tables ###
+            # (need to figure this one out...)
         
         
         # --- Aggregation -----------------------------------------------------
