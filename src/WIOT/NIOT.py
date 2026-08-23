@@ -76,7 +76,7 @@ class NIOT:
         # Use the appropriate price index for each variable (or what I believe to be the appropriate price index...?)
         
         ### Deflate the Socio-Economic Accounts ###
-        if defalte:
+        if deflate:
             # Deflate the gross output by the gross output price index
             self.sea_raw.loc['GO',:] = self.sea_raw.loc['GO'] / self.go_pi
             
